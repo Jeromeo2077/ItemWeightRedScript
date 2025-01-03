@@ -127,7 +127,7 @@ public final static func GetItemTypesForSorting() -> array<gamedataItemType> {
 // Adds ammo to display on the weapons filter.
 // Adds materials to display on the filter.
 @wrapMethod(ItemCategoryFliter)
-  public final static func IsOfCategoryType(filter: ItemFilterCategory, data: wref<gameItemData>) -> Bool {
+  public final static func IsOfCategoryType(filter: ItemFilterCategory data: wref<gameItemData>) -> Bool {
                 let itemType: gamedataItemType = data.GetItemType();             
     if !IsDefined(data) {
                                 return false;
@@ -252,7 +252,7 @@ protected cb func OnDropQueueUpdatedEvent(evt: ref<DropQueueUpdatedEvent>) -> Bo
   
  // Updates sorting by weight to use the non-zero weights.
 @wrapMethod(ItemCompareBuilder)
-public final static func BuildInventoryItemSortData(item: InventoryItemData, uiScriptableSystem: ref<UIScriptableSystem>) -> InventoryItemSortData {
+public final static func BuildInventoryItemSortData(item: InventoryItemData uiScriptableSystem: ref<UIScriptableSystem>) -> InventoryItemSortData {
                 let sortData : InventoryItemSortData = wrappedMethod(item, uiScriptableSystem);
                 sortData.Weight = ItemWeights.GetItemWeight(InventoryItemData.GetGameItemData(item));
     return sortData;
